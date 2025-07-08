@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':model')
+    //implementation 'com.github.bancolombia:commons-jms-mq:2.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework:spring-context'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+}

@@ -1,12 +1,12 @@
-FROM eclipse-temurin:21-jdk-alpine
-# Crear el directorio de trabajo
+# Etapa 1: Construcción
+FROM gradle:8.5-jdk21-alpine as build
+COPY . /app
 WORKDIR /app
+RUN gradle clean build -x test
 
-# Copiar el JAR desde la ruta relativa al contexto del build
-COPY applications/app-service/build/libs/UserInteractions.jar app.jar
-
-# Exponer el puerto
+# Etapa 2: Ejecución
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/applications/app-service/build/libs/*.jar app.jar
 EXPOSE 8080
-
-# Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]

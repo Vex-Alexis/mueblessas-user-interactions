@@ -3,7 +3,7 @@
 FROM gradle:8.7-jdk21-alpine AS builder
 
 # Crear directorio de trabajo dentro del contenedor
-WORKDIR /app
+WORKDIR /app/muebles-user-interactions
 
 # Copiar todo el proyecto (solo lo necesario para compilar)
 COPY . .

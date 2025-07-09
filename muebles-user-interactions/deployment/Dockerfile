@@ -12,7 +12,7 @@ COPY . .
 RUN gradle clean build -x test
 
 
-# Etapa 1: Imagen ligera para ejecución
+# Etapa 2: Imagen ligera para ejecución
 
 FROM eclipse-temurin:21-jdk-alpine
 
@@ -20,7 +20,7 @@ FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
 # Copiar el .jar compilado desde tu máquina al contenedor
-COPY muebles-user-interactions/applications/app-service/build/libs/UserInteractions.jar app.jar
+COPY /app/muebles-user-interactions/applications/app-service/build/libs/UserInteractions.jar app.jar
 
 # Puerto expuesto (si aplica, cambia si tu app usa otro)
 EXPOSE 8080

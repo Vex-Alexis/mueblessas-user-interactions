@@ -20,7 +20,7 @@ FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
 # Copiar el .jar compilado desde tu máquina al contenedor
-COPY --from=builder /app/applications/app-service/build/libs/UserInteractions.jar app.jar
+COPY muebles-user-interactions/applications/app-service/build/libs/UserInteractions.jar app.jar
 
 # Puerto expuesto (si aplica, cambia si tu app usa otro)
 EXPOSE 8080
